@@ -1,1 +1,2 @@
-<app-task *ngFor="let task of tasks" [task]="task"></app-task>
+<app-add-task-form></app-add-task-form>
+<app-task (onDeleteTask)="deleteTask(task)" *ngFor="let task of tasks" [task]="task"></app-task>
