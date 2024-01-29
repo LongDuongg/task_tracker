@@ -10,6 +10,12 @@
       "id": "2",
       "text": "Meeting at School",
       "day": "May 6th at 1:30pm",
+      "reminder": false
+    },
+    {
+      "id": "d082",
+      "text": "Daily meeting",
+      "day": "Feb 2nd at 13:30pm",
       "reminder": true
     }
   ]
