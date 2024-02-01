@@ -1,10 +1,10 @@
-<form class="add-form" (ngSubmit) = "onSubmit()">
+<form [formGroup]="_formService.form" class="add-form">
   <div class="form-control">
     <label for="text">Task</label>
     <input
       type="text"
       name="text"
-      [(ngModel)] = "text"
+      formControlName="text" 
       id="text"
       placeholder="Add Task"
     />
@@ -14,7 +14,7 @@
     <input
       type="text"
       name="day"
-      [(ngModel)] = "day"
+      formControlName="day"
       id="day"
       placeholder="Add Day & Time"
     />
@@ -24,9 +24,9 @@
     <input
       type="checkbox"
       name="reminder"
-      [(ngModel)] = "reminder"
+      formControlName="reminder"
       id="reminder"
     />
   </div>
-  <input type="submit" value="Save Task" class="btn btn-block" />
+  <input [disabled]="_formService.form.invalid" type="submit" (click)="onSubmit()" value="Save Task" class="btn btn-block" />
 </form>

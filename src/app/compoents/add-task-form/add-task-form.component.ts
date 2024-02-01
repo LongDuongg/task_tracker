@@ -1,38 +1,43 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Task } from '../../interface/task';
+import { TaskService } from '../../services/task.service';
+import { FormService } from '../../services/form.service';
+
 
 @Component({
   selector: 'app-add-task-form',
   standalone: true,
   imports: [
-    FormsModule,
+    ReactiveFormsModule,
+    TaskService
   ],
   templateUrl: './add-task-form.component.html',
   styleUrl: './add-task-form.component.css'
 })
 export class AddTaskFormComponent implements OnInit {
 
-  @Output() onAddTask = new EventEmitter();
+  @Input() currentTask!: Task;
 
-  text!: String; 
-  day!: String; 
-  reminder: boolean = false; 
+  @Output() onAddTask = new EventEmitter();
+  @Output() onEditTask = new EventEmitter();
+
+
+  constructor(public _formService: FormService) {
+
+  }
 
   ngOnInit(): void {
-      
+    this._formService.onCreateForm();
+    
   }
 
   onSubmit() {
-    const newTask = {
-      text : this.text,
-      day : this.day,
-      reminder: this.reminder
-    }
-
-    this.onAddTask.emit(newTask);
-
-    this.text = ""
-    this.day = ""
-    this.reminder = false
+   if(this._formService.form.valid) {
+    this.onAddTask.emit(this._formService.form.value);
+    console.log(this._formService.form.value);
+    this._formService.form.reset();
+    // console.log(this.currentTask);
+   }
   }
 }

@@ -3,6 +3,8 @@
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .task.reminder {

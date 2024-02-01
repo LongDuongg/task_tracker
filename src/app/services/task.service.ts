@@ -15,9 +15,6 @@ import { Observable } from 'rxjs';
   template: ""
 })
 
-
-
-
 export class TaskService {
   
   constructor(private http: HttpClient) { 
@@ -34,8 +31,8 @@ export class TaskService {
     return this.http.get<Task[]>("http://localhost:5000/tasks");
   } 
 
-  getTaskByID(id: number): Observable<Task> | undefined {
-    return this.http.get<Task>(`http://localhost:5000/tasks/${id}`);
+  getTask(task: Task): Observable<Task> {
+    return this.http.get<Task>(`http://localhost:5000/tasks/${task.id}`);
   }
 
   deleteTask(task:Task) : Observable<Task> {
@@ -48,5 +45,9 @@ export class TaskService {
 
   addTask(task: Task): Observable<Task> {
     return this.http.post<Task>(`http://localhost:5000/tasks`, task, this.httpOptions);
+  }
+
+  editTask(id: string, task: Task): Observable<Task> {
+    return this.http.put<Task>(`http://localhost:5000/tasks/${id}`, task, this.httpOptions);
   }
 }
