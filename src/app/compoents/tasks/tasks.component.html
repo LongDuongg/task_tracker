@@ -1,1 +1,3 @@
-<app-task (onSelectTask)="selectTask(task)"  (onDeleteTask)="deleteTask(task)" (onToggleTask)="toggleTask(task)" *ngFor="let task of taskList" [task]="task"></app-task>
+<div  *ngFor="let task of taskList">
+  <app-task (onSelectTask)="selectTask(task)"  (onDeleteTask)="deleteTask(task)" (onToggleTask)="toggleTask(task)"  [task]="task"></app-task>
+</div>

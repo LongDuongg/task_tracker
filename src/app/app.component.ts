@@ -22,7 +22,6 @@ import { TaskService } from './services/task.service';
 export class AppComponent implements OnInit {
   title = 'task_tracker';
   taskService: TaskService = inject(TaskService);
-  task: Task | undefined;
   tasks: Task[] = [];
 
   ngOnInit(): void {
@@ -37,7 +36,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  selectTask() {
-    
+  updateTask(event: any) {
+    this.taskService.editTask(event.id, event.task).subscribe(() => {
+      this.tasks = this.tasks.map((t) => {
+        return t.id === event.id ?  event.task : t;
+        
+      })
+    });
   }
 }

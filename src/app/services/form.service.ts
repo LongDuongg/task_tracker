@@ -12,6 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class FormService {
   form!: FormGroup;
+  editMode: boolean = false;
+  showForm: boolean = false;
+  currentTaskID!: any;
 
   constructor(private _formBuilder: FormBuilder) {
 

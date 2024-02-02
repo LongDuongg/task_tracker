@@ -10,7 +10,7 @@
       "id": "6405",
       "text": "Daily meeting",
       "day": "June 11th at 7:30am",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": "0098",
@@ -19,10 +19,10 @@
       "reminder": false
     },
     {
-      "id": "3bba",
-      "text": "Having Test",
-      "day": "Feb 2nd at 13:30pm",
-      "reminder": false
+      "text": "Having Lunch with fr",
+      "day": "June 11th at 7:30am",
+      "reminder": null,
+      "id": "5637"
     }
   ]
 }

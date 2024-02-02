@@ -1,5 +1,5 @@
 <div class="container">
   <app-header></app-header>
-  <app-add-task-form (onAddTask)="addTask($event)"></app-add-task-form>
-  <app-tasks  [taskList]="tasks"></app-tasks>
+  <app-add-task-form (onEditTask)="updateTask($event)" (onAddTask)="addTask($event)"></app-add-task-form>
+  <app-tasks [taskList]="tasks"></app-tasks>
 </div>

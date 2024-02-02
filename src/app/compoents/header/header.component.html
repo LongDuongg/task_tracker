@@ -1,4 +1,4 @@
 <header>
   <h1>Task Tracker</h1>
-  <app-button text="Add" color="green" (btnClick)="onToggle()"></app-button>
+  <app-button text="{{_formService.showForm ? 'Close' : 'Open'}}" color="{{_formService.showForm ? 'red' : 'green'}}" (btnClick)="onToggle()"></app-button>
 </header>

@@ -52,5 +52,7 @@ export class TasksComponent implements OnInit {
       reminder: currentTask?.reminder,
     })
 
+    this._formService.editMode = true;
+    this._formService.currentTaskID = currentTask?.id;
   }
 }
